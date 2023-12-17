@@ -5,7 +5,7 @@ namespace lve {
     LveMesh::LveMesh(LveDevice& device, const std::vector<Vertex> &vertices): lveDevice{device} {
         createVertexBuffers(vertices);
     }
-
+ 
     LveMesh::~LveMesh() {   
         vkDestroyBuffer(lveDevice.device(), vertexBuffer, nullptr);
         vkFreeMemory(lveDevice.device(), vertexBufferMemory, nullptr);
@@ -23,7 +23,7 @@ namespace lve {
             vertexBufferMemory
             );
         void* data;
-        vkMapMemory(lveDevice.device(), vertexBufferMemory, 0 , bufferSize, 0, &data);
+        vkMapMemory(lveDevice.device(), vertexBufferMemory, 0, bufferSize, 0, &data);
         memcpy(data, vertices.data(), static_cast<size_t>(bufferSize));
         vkUnmapMemory(lveDevice.device(), vertexBufferMemory);
     }
@@ -47,7 +47,7 @@ namespace lve {
         return bindingDescriptions;
     }
     std::vector<VkVertexInputAttributeDescription> LveMesh::Vertex::getAttributeDescriptions() {
-        std::vector<VkVertexInputAttributeDescription> attributeDescriptions;
+        std::vector<VkVertexInputAttributeDescription> attributeDescriptions(1);
         attributeDescriptions[0].binding = 0;
         attributeDescriptions[0].location = 0;
         attributeDescriptions[0].format = VK_FORMAT_R32G32_SFLOAT;

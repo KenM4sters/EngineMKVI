@@ -15,7 +15,7 @@ namespace lve {
 
     void App::run() {
 
-        while(!lveWindow.shouldClose()) {
+        while(!lveWindow.shouldClose()) { 
             glfwPollEvents();
             drawFrame();
         }
@@ -99,7 +99,8 @@ namespace lve {
             vkCmdBeginRenderPass(commandBuffers[i], &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
 
             lvePipeline->bind(commandBuffers[i]);
-            lveMesh->bind(commandBuffers[i]);  
+            lveMesh->bind(commandBuffers[i]);
+            lveMesh->draw(commandBuffers[i]);  
 
             vkCmdEndRenderPass(commandBuffers[i]);
 
