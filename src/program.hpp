@@ -1,9 +1,8 @@
 #pragma once
 
 #include "./window.hpp"
-#include "./pipeline.hpp"
-#include "./swap_chain.hpp"
-#include "./mesh.hpp"
+#include "./renderer.hpp"
+#include "./game_object.hpp"
 #include <memory>
 #include <vector>
 
@@ -22,24 +21,13 @@ namespace lve {
 
             void run();
 
-
         private:
-            void loadMeshes();
-            void createPipelineLayout();
-            void createPipeline();
-            void createCommandBuffers();
-            void freeCommandBuffers();
-            void drawFrame();
-            void recreateSwapChain();
-            void recordCommandBuffer(int imageIndex);
+            void loadGameObjects();
 
-            LveWindow lveWindow{WIDTH, HEIGHT, "EngineMKII"};
+            LveWindow lveWindow{WIDTH, HEIGHT, "EngineMKIV"};
             LveDevice lveDevice{lveWindow};
-            std::unique_ptr<LveSwapChain> lveSwapChain;
-            std::unique_ptr<LvePipeline> lvePipeline;
-            VkPipelineLayout pipelineLayout;
-            std::vector<VkCommandBuffer> commandBuffers;
-            std::unique_ptr<LveMesh> lveMesh;
+            LveRenderer lveRenderer{lveWindow, lveDevice};
+            std::vector<LveGameObject> gameObjects;
 
     };
 }
