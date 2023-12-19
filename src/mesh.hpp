@@ -20,7 +20,12 @@ namespace lve {
 
             };
 
-            LveMesh(LveDevice& device, const std::vector<Vertex> &vertices);
+            struct MeshData {
+                std::vector<Vertex> vertices{};
+                std::vector<uint32_t> indices{};
+            };
+
+            LveMesh(LveDevice& device, const LveMesh::MeshData &builder);
             ~LveMesh();
 
             LveMesh(const LveWindow&) = delete;
@@ -32,11 +37,18 @@ namespace lve {
 
         private:
             void createVertexBuffers(const std::vector<Vertex> &vertices);
+            void createIndexBuffer(const std::vector<uint32_t> &indices);
 
             LveDevice& lveDevice;
+
             VkBuffer vertexBuffer;
             VkDeviceMemory vertexBufferMemory;
             uint32_t vertexCount;
+
+            bool hasIndexBuffer = false;
+            VkBuffer indexBuffer;
+            VkDeviceMemory indexBufferMemory;
+            uint32_t indexCount;
 
     };
 }
