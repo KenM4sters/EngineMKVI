@@ -61,12 +61,12 @@ namespace lve {
 
     void App::loadGameObjects() {
         std::shared_ptr<LveMesh> lveMesh = LveMesh::createModelFromFile(
-            lveDevice, "assets/models/colored_cube.obj");
+            lveDevice, "assets/models/smooth_vase.obj");
 
         auto cube = LveGameObject::createGameObject();
         cube.mesh = lveMesh;
         cube.transform.translation = {0.0f, 0.0f, 2.5f};
-        cube.transform.scale = {0.5f, 0.5f, 0.5f};
+        cube.transform.scale = glm::vec3(3.0f);
         gameObjects.push_back(std::move(cube));
     }
 
