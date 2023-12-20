@@ -6,6 +6,7 @@
 #include <glm/glm.hpp> 
 
 //std
+#include <memory>
 #include <vector>
 
 namespace lve {
@@ -13,8 +14,11 @@ namespace lve {
         public:
 
             struct Vertex {
-                glm::vec3 position;
-                glm::vec3 color;
+                glm::vec3 position{};
+                glm::vec3 color{};
+                glm::vec3 normal{};
+                glm::vec2 uv{};
+
                 static std::vector<VkVertexInputBindingDescription> getBindingDescriptions();
                 static std::vector<VkVertexInputAttributeDescription> getAttributeDescriptions();
 
@@ -23,6 +27,8 @@ namespace lve {
             struct MeshData {
                 std::vector<Vertex> vertices{};
                 std::vector<uint32_t> indices{};
+
+                void loadModel(const std::string &filePath);
             };
 
             LveMesh(LveDevice& device, const LveMesh::MeshData &builder);
@@ -30,6 +36,9 @@ namespace lve {
 
             LveMesh(const LveWindow&) = delete;
             LveMesh &operator=(const LveWindow&) = delete;
+
+            static std::unique_ptr<LveMesh> createModelFromFile(
+                LveDevice &device, const std::string &filePath);
 
             void bind(VkCommandBuffer commandBuffer);
             void draw(VkCommandBuffer commandBuffer);

@@ -1,5 +1,14 @@
 #include "./mesh.hpp"
 
+//libs
+#define TINYOBJLOADER_IMPLEMENTATION
+#include "../include/tiny_obj_loader.h"
+
+//std
+#include <cassert>
+#include <cstring>
+#include <iostream>
+
 namespace lve {
 
     LveMesh::LveMesh(LveDevice& device, const LveMesh::MeshData &modelData): lveDevice{device} {
@@ -15,6 +24,15 @@ namespace lve {
             vkDestroyBuffer(lveDevice.device(), indexBuffer, nullptr);
             vkFreeMemory(lveDevice.device(), indexBufferMemory, nullptr);
         }
+    }
+
+    std::unique_ptr<LveMesh> LveMesh::createModelFromFile(
+            LveDevice &device, const std::string &filePath) {
+        MeshData meshData{};
+        meshData.loadModel(filePath);
+        std::cout << "Vertex count: " << meshData.vertices.size() << std::endl;
+
+        return std::make_unique<LveMesh>(device, meshData);
     }
 
     void LveMesh::createVertexBuffers(const std::vector<Vertex> &vertices) {
@@ -125,6 +143,59 @@ namespace lve {
         attributeDescriptions[1].offset = offsetof(Vertex, color);
 
         return attributeDescriptions;
+    }
+
+    void LveMesh::MeshData::loadModel(const std::string &filePath) {
+        tinyobj::attrib_t attrib;
+        std::vector<tinyobj::shape_t> shapes;
+        std::vector<tinyobj::material_t> materials;
+        std::string warn, err;
+
+        if(!tinyobj::LoadObj(&attrib, &shapes, &materials, &warn, &err, filePath.c_str())) {
+            throw std::runtime_error(warn + err);
+        }
+
+        vertices.clear();
+        indices.clear();
+
+        for(const auto &shape: shapes) {
+            for(const auto &index: shape.mesh.indices) {
+                Vertex vertex{};
+                if(index.vertex_index >= 0) {
+                    vertex.position = {
+                        attrib.vertices[3 * index.vertex_index + 0],
+                        attrib.vertices[3 * index.vertex_index + 1],
+                        attrib.vertices[3 * index.vertex_index + 2],
+                    };
+
+                    auto colorIndex = 3 * index.vertex_index + 2;
+                    if(colorIndex < attrib.colors.size()) {
+                        vertex.color = {
+                        attrib.colors[colorIndex - 0],
+                        attrib.colors[colorIndex - 1],
+                        attrib.colors[colorIndex - 2],
+                        };
+                }
+                } 
+
+                if(index.normal_index >= 0) {
+                    vertex.normal = {
+                        attrib.normals[3 * index.normal_index + 0],
+                        attrib.normals[3 * index.normal_index + 1],
+                        attrib.normals[3 * index.normal_index + 2],
+                    }; 
+                }
+
+                if(index.texcoord_index >= 0) {
+                    vertex.uv = {
+                        attrib.texcoords[2 * index.texcoord_index + 0],
+                        attrib.texcoords[2 * index.texcoord_index + 1],
+                    }; 
+                }
+
+                vertices.push_back(vertex);
+            }
+        }
     }
 
 }
