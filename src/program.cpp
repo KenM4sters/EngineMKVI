@@ -2,6 +2,7 @@
 #include "./camera.hpp"
 #include "./renderSystem.hpp"
 #include "./input.hpp"
+#include "./buffer.hpp"
 
 // libs
 #define GLM_FORCE_RADIANS
@@ -18,6 +19,13 @@
 
 namespace lve {
 
+    struct GlobalUbo {
+        glm::mat4 projectionView{};
+        glm::vec3 lightDirection = glm::normalize(glm::vec3{1.0f, -3.0f, -1.0f});
+    };
+
+
+
     App::App() {
         loadGameObjects();
     }
@@ -25,6 +33,18 @@ namespace lve {
     App::~App() {}
 
     void App::run() {
+
+        std::vector<std::unique_ptr<LveBuffer>> uboBuffers(LveSwapChain::MAX_FRAMES_IN_FLIGHT);
+        for(int i = 0; i < uboBuffers.size(); i++) {
+            uboBuffers[i] = std::make_unique<LveBuffer>(
+                lveDevice,
+                sizeof(GlobalUbo),
+                1,
+                VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
+                VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT);
+            uboBuffers[i]->map();
+
+        }
 
         RenderSystem renderSystem{lveDevice, lveRenderer.getSwapChainRenderPass()};
         LveCamera camera{};
@@ -49,8 +69,24 @@ namespace lve {
             // camera.setOrthographicProjection(-aspect, aspect, -1, 1, -1, 1);
             camera.setPerspectiveProjection(glm::radians(50.0f), aspect, 0.1f, 10.0f);
             if(auto commandBuffer = lveRenderer.beginFrame()) {
+                int frameIndex = lveRenderer.getFrameIndex();
+
+                FrameInfo frameInfo{
+                    frameIndex,
+                    frameTime,
+                    commandBuffer,
+                    camera,
+                };
+
+                // update
+                GlobalUbo ubo{};
+                ubo.projectionView = camera.getProjection() * camera.getView();
+                uboBuffers[frameIndex]->writeToBuffer(&ubo);
+                uboBuffers[frameIndex]->flush();
+
+                // render
                 lveRenderer.beginSwapChainRenderPass(commandBuffer);
-                renderSystem.renderGameObjects(commandBuffer, gameObjects, camera);
+                renderSystem.renderGameObjects(frameInfo, gameObjects);
                 lveRenderer.endSwapChainRenderPass(commandBuffer);
                 lveRenderer.endFrame();
             }
@@ -63,11 +99,20 @@ namespace lve {
         std::shared_ptr<LveMesh> lveMesh = LveMesh::createModelFromFile(
             lveDevice, "assets/models/smooth_vase.obj");
 
-        auto cube = LveGameObject::createGameObject();
-        cube.mesh = lveMesh;
-        cube.transform.translation = {0.0f, 0.0f, 2.5f};
-        cube.transform.scale = glm::vec3(3.0f);
-        gameObjects.push_back(std::move(cube));
+        std::shared_ptr<LveMesh> lveMesh_2 = LveMesh::createModelFromFile(
+            lveDevice, "assets/models/flat_vase.obj");
+
+        auto vase_smooth = LveGameObject::createGameObject();
+        vase_smooth.mesh = lveMesh;
+        vase_smooth.transform.translation = {-0.5f, 0.5f, 2.5f};
+        vase_smooth.transform.scale = glm::vec3(3.0f);
+        gameObjects.push_back(std::move(vase_smooth));
+        
+        auto vase_flat = LveGameObject::createGameObject();
+        vase_flat.mesh = lveMesh;
+        vase_flat.transform.translation = {0.5f, 0.5f, 2.5f};
+        vase_flat.transform.scale = glm::vec3(3.0f);
+        gameObjects.push_back(std::move(vase_flat));
     }
 
 }
