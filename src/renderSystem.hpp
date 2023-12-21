@@ -14,19 +14,18 @@ namespace lve {
 
         public:
 
-            RenderSystem(LveDevice& device, VkRenderPass renderPass);
+            RenderSystem(LveDevice& device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout);
             ~RenderSystem();
 
             RenderSystem(const LveWindow&) = delete;
             RenderSystem &operator=(const LveWindow&) = delete;
 
             void renderGameObjects(
-                FrameInfo &frameInfo,
-                std::vector<LveGameObject> &gameObjects
+                FrameInfo &frameInfo
             ); 
 
         private:
-            void createPipelineLayout();
+            void createPipelineLayout(VkDescriptorSetLayout globalSetLayout);
             void createPipeline(VkRenderPass renderPass);
 
             LveDevice &lveDevice;

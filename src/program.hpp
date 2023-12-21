@@ -3,6 +3,9 @@
 #include "./window.hpp"
 #include "./renderer.hpp"
 #include "./game_object.hpp"
+#include "./descriptors.hpp"
+
+// std
 #include <memory>
 #include <vector>
 
@@ -27,7 +30,10 @@ namespace lve {
             LveWindow lveWindow{WIDTH, HEIGHT, "EngineMKIV"};
             LveDevice lveDevice{lveWindow};
             LveRenderer lveRenderer{lveWindow, lveDevice};
-            std::vector<LveGameObject> gameObjects;
+
+            // note: order of declarations matters
+            std::unique_ptr<LveDescriptorPool> globalPool{};
+            LveGameObject::Map gameObjects;
 
     };
 }
