@@ -6,6 +6,10 @@
 #include <iostream>
 #include <cassert>
 
+#ifndef ENGINE_DIR
+#define ENGINE_DIR "../"
+#endif 
+
 namespace lve {
 
     LvePipeline::LvePipeline(                
@@ -24,11 +28,11 @@ namespace lve {
     }
 
     std::vector<char> LvePipeline::readFile(const std::string& filePath){
-        
-        std::ifstream file{filePath, std::ios::ate | std::ios::binary}; 
+        std::string enginePath = ENGINE_DIR + filePath;
+        std::ifstream file{enginePath, std::ios::ate | std::ios::binary}; 
 
         if(!file.is_open()) {
-            throw std::runtime_error("Couldn't open file: " + filePath);
+            throw std::runtime_error("Couldn't open file: " + enginePath);
         }
 
         size_t fileSize = static_cast<size_t>(file.tellg());

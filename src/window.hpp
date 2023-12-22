@@ -1,8 +1,7 @@
 #pragma once
 #define GLFW_INCLUDE_VULKAN
-#include "../include/glfw3.h"
+#include <GLFW/glfw3.h>
 #include <vulkan/vulkan_beta.h>
-#include <iostream>
 #include <string>
 
 namespace lve {

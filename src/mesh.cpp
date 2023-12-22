@@ -4,7 +4,7 @@
 
 //libs
 #define TINYOBJLOADER_IMPLEMENTATION
-#include "../include/tiny_obj_loader.h"
+#include "../external/tiny_obj_loader.h"
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/hash.hpp>
 
@@ -13,6 +13,10 @@
 #include <cstring>
 #include <iostream>
 #include <unordered_map>
+
+#ifndef ENGINE_DIR
+#define ENGINE_DIR "../"
+#endif 
 
 namespace std {
     template<>
@@ -150,7 +154,9 @@ namespace lve {
         std::vector<tinyobj::material_t> materials;
         std::string warn, err;
 
-        if(!tinyobj::LoadObj(&attrib, &shapes, &materials, &warn, &err, filePath.c_str())) {
+        std::string enginePath = ENGINE_DIR + filePath;
+
+        if(!tinyobj::LoadObj(&attrib, &shapes, &materials, &warn, &err, enginePath.c_str())) {
             throw std::runtime_error(warn + err);
         }
 

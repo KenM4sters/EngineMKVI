@@ -1,0 +1,4 @@
+/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles/LveEngine.dir
+/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles/Shaders.dir
+/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles/edit_cache.dir
+/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles/rebuild_cache.dir

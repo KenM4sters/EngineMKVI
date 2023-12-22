@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+f24b7d8e82f95948f0934141b4e5cb56 /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.frag.spv
+1fadcc563468de1ef7acb120c4ce705b /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.vert.spv
+1f36364df7b70fdbf8bae2fc171d0494 CMakeFiles/Shaders
