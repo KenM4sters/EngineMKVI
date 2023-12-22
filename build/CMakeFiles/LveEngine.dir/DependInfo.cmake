@@ -18,9 +18,10 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/samuelbrookman/Desktop/EngineMKVI/src/mesh.cpp" "CMakeFiles/LveEngine.dir/src/mesh.cpp.o" "gcc" "CMakeFiles/LveEngine.dir/src/mesh.cpp.o.d"
   "/Users/samuelbrookman/Desktop/EngineMKVI/src/pipeline.cpp" "CMakeFiles/LveEngine.dir/src/pipeline.cpp.o" "gcc" "CMakeFiles/LveEngine.dir/src/pipeline.cpp.o.d"
   "/Users/samuelbrookman/Desktop/EngineMKVI/src/program.cpp" "CMakeFiles/LveEngine.dir/src/program.cpp.o" "gcc" "CMakeFiles/LveEngine.dir/src/program.cpp.o.d"
-  "/Users/samuelbrookman/Desktop/EngineMKVI/src/renderSystem.cpp" "CMakeFiles/LveEngine.dir/src/renderSystem.cpp.o" "gcc" "CMakeFiles/LveEngine.dir/src/renderSystem.cpp.o.d"
   "/Users/samuelbrookman/Desktop/EngineMKVI/src/renderer.cpp" "CMakeFiles/LveEngine.dir/src/renderer.cpp.o" "gcc" "CMakeFiles/LveEngine.dir/src/renderer.cpp.o.d"
   "/Users/samuelbrookman/Desktop/EngineMKVI/src/swap_chain.cpp" "CMakeFiles/LveEngine.dir/src/swap_chain.cpp.o" "gcc" "CMakeFiles/LveEngine.dir/src/swap_chain.cpp.o.d"
+  "/Users/samuelbrookman/Desktop/EngineMKVI/src/systems/point_light_system.cpp" "CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.o" "gcc" "CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.o.d"
+  "/Users/samuelbrookman/Desktop/EngineMKVI/src/systems/simple_render_system.cpp" "CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.o" "gcc" "CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.o.d"
   "/Users/samuelbrookman/Desktop/EngineMKVI/src/window.cpp" "CMakeFiles/LveEngine.dir/src/window.cpp.o" "gcc" "CMakeFiles/LveEngine.dir/src/window.cpp.o.d"
   )
 

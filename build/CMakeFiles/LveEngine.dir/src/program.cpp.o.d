@@ -942,8 +942,11 @@ CMakeFiles/LveEngine.dir/src/program.cpp.o: \
   /opt/homebrew/include/glm/gtc/../matrix.hpp \
   /Users/samuelbrookman/Desktop/EngineMKVI/src/./descriptors.hpp \
   /Users/samuelbrookman/Desktop/EngineMKVI/src/./camera.hpp \
-  /Users/samuelbrookman/Desktop/EngineMKVI/src/./renderSystem.hpp \
-  /Users/samuelbrookman/Desktop/EngineMKVI/src/./pipeline.hpp \
-  /Users/samuelbrookman/Desktop/EngineMKVI/src/./frame_info.hpp \
+  /Users/samuelbrookman/Desktop/EngineMKVI/src/./systems/simple_render_system.hpp \
+  /Users/samuelbrookman/Desktop/EngineMKVI/src/./systems/../pipeline.hpp \
+  /Users/samuelbrookman/Desktop/EngineMKVI/src/./systems/../game_object.hpp \
+  /Users/samuelbrookman/Desktop/EngineMKVI/src/./systems/../camera.hpp \
+  /Users/samuelbrookman/Desktop/EngineMKVI/src/./systems/../frame_info.hpp \
+  /Users/samuelbrookman/Desktop/EngineMKVI/src/./systems/point_light_system.hpp \
   /Users/samuelbrookman/Desktop/EngineMKVI/src/./input.hpp \
   /opt/homebrew/include/glm/gtc/constants.hpp

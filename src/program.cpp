@@ -1,6 +1,7 @@
 #include "./program.hpp"
 #include "./camera.hpp"
-#include "./renderSystem.hpp"
+#include "./systems/simple_render_system.hpp"
+#include "./systems/point_light_system.hpp"
 #include "./input.hpp"
 #include "./buffer.hpp"
 
@@ -18,17 +19,7 @@
 
 
 namespace lve {
-
-    struct GlobalUbo {
-        glm::mat4 projectionView{1.0f};
-        //glm::vec3 lightDirection = glm::normalize(glm::vec3{1.0f, -3.0f, -1.0f});
-        glm::vec4 ambientColor{1.0f, 1.0f, 1.0f, 0.02f};
-        glm::vec3 pointLight{-1.0f};
-        alignas(16) glm::vec4 lightColor{-1.0f};
-    };
-
-
-
+    
     App::App() {
         globalPool = LveDescriptorPool::Builder(lveDevice)
             .setMaxSets(LveSwapChain::MAX_FRAMES_IN_FLIGHT)
@@ -71,6 +62,11 @@ namespace lve {
             lveRenderer.getSwapChainRenderPass(), 
             globalSetLayout->getDescriptorSetLayout()};
 
+        PointLightSystem pointLightSystem{
+            lveDevice, 
+            lveRenderer.getSwapChainRenderPass(), 
+            globalSetLayout->getDescriptorSetLayout()};
+
         LveCamera camera{};
 
         auto viewerObject = LveGameObject::createGameObject();
@@ -106,13 +102,16 @@ namespace lve {
 
                 // update
                 GlobalUbo ubo{};
-                ubo.projectionView = camera.getProjection() * camera.getView();
+                ubo.projection = camera.getProjection();
+                ubo.view = camera.getView();
+                pointLightSystem.update(frameInfo, ubo);
                 uboBuffers[frameIndex]->writeToBuffer(&ubo);
                 uboBuffers[frameIndex]->flush();
 
                 // render
                 lveRenderer.beginSwapChainRenderPass(commandBuffer);
                 renderSystem.renderGameObjects(frameInfo);
+                pointLightSystem.render(frameInfo);
                 lveRenderer.endSwapChainRenderPass(commandBuffer);
                 lveRenderer.endFrame();
             }
@@ -148,6 +147,26 @@ namespace lve {
         floor.transform.translation = {0.0f, 0.5f, 0.0f};
         floor.transform.scale = glm::vec3(3.0f);
         gameObjects.emplace(floor.getId(), std::move(floor));
+        
+         std::vector<glm::vec3> lightColors{
+            {1.f, .1f, .1f},
+            {.1f, .1f, 1.f},
+            {.1f, 1.f, .1f},
+            {1.f, 1.f, .1f},
+            {.1f, 1.f, 1.f},
+            {1.f, 1.f, 1.f} 
+        };
+        
+        for(int i = 0; i < lightColors.size(); i++) {
+            auto pointLight = LveGameObject::makePointLight(0.2f);
+            pointLight.color = lightColors[i];
+            auto rotateLight = glm::rotate(
+                glm::mat4(1.0f), 
+                (i * glm::two_pi<float>() / lightColors.size()),
+                {0.0f, -1.0f, 0.0f});
+            
+            pointLight.transform.translation = glm::vec3(rotateLight * glm::vec4(-1.0f, -1.0f, -1.0f, 1.0f));
+            gameObjects.emplace(pointLight.getId(), std::move(pointLight));
+        }
     }
-
 }

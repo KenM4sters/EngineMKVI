@@ -382,30 +382,6 @@ src/program.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LveEngine.dir/build.make CMakeFiles/LveEngine.dir/src/program.cpp.s
 .PHONY : src/program.cpp.s
 
-src/renderSystem.o: src/renderSystem.cpp.o
-.PHONY : src/renderSystem.o
-
-# target to build an object file
-src/renderSystem.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LveEngine.dir/build.make CMakeFiles/LveEngine.dir/src/renderSystem.cpp.o
-.PHONY : src/renderSystem.cpp.o
-
-src/renderSystem.i: src/renderSystem.cpp.i
-.PHONY : src/renderSystem.i
-
-# target to preprocess a source file
-src/renderSystem.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LveEngine.dir/build.make CMakeFiles/LveEngine.dir/src/renderSystem.cpp.i
-.PHONY : src/renderSystem.cpp.i
-
-src/renderSystem.s: src/renderSystem.cpp.s
-.PHONY : src/renderSystem.s
-
-# target to generate assembly for a file
-src/renderSystem.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LveEngine.dir/build.make CMakeFiles/LveEngine.dir/src/renderSystem.cpp.s
-.PHONY : src/renderSystem.cpp.s
-
 src/renderer.o: src/renderer.cpp.o
 .PHONY : src/renderer.o
 
@@ -453,6 +429,54 @@ src/swap_chain.s: src/swap_chain.cpp.s
 src/swap_chain.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LveEngine.dir/build.make CMakeFiles/LveEngine.dir/src/swap_chain.cpp.s
 .PHONY : src/swap_chain.cpp.s
+
+src/systems/point_light_system.o: src/systems/point_light_system.cpp.o
+.PHONY : src/systems/point_light_system.o
+
+# target to build an object file
+src/systems/point_light_system.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LveEngine.dir/build.make CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.o
+.PHONY : src/systems/point_light_system.cpp.o
+
+src/systems/point_light_system.i: src/systems/point_light_system.cpp.i
+.PHONY : src/systems/point_light_system.i
+
+# target to preprocess a source file
+src/systems/point_light_system.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LveEngine.dir/build.make CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.i
+.PHONY : src/systems/point_light_system.cpp.i
+
+src/systems/point_light_system.s: src/systems/point_light_system.cpp.s
+.PHONY : src/systems/point_light_system.s
+
+# target to generate assembly for a file
+src/systems/point_light_system.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LveEngine.dir/build.make CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.s
+.PHONY : src/systems/point_light_system.cpp.s
+
+src/systems/simple_render_system.o: src/systems/simple_render_system.cpp.o
+.PHONY : src/systems/simple_render_system.o
+
+# target to build an object file
+src/systems/simple_render_system.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LveEngine.dir/build.make CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.o
+.PHONY : src/systems/simple_render_system.cpp.o
+
+src/systems/simple_render_system.i: src/systems/simple_render_system.cpp.i
+.PHONY : src/systems/simple_render_system.i
+
+# target to preprocess a source file
+src/systems/simple_render_system.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LveEngine.dir/build.make CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.i
+.PHONY : src/systems/simple_render_system.cpp.i
+
+src/systems/simple_render_system.s: src/systems/simple_render_system.cpp.s
+.PHONY : src/systems/simple_render_system.s
+
+# target to generate assembly for a file
+src/systems/simple_render_system.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LveEngine.dir/build.make CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.s
+.PHONY : src/systems/simple_render_system.cpp.s
 
 src/window.o: src/window.cpp.o
 .PHONY : src/window.o
@@ -518,15 +542,18 @@ help:
 	@echo "... src/program.o"
 	@echo "... src/program.i"
 	@echo "... src/program.s"
-	@echo "... src/renderSystem.o"
-	@echo "... src/renderSystem.i"
-	@echo "... src/renderSystem.s"
 	@echo "... src/renderer.o"
 	@echo "... src/renderer.i"
 	@echo "... src/renderer.s"
 	@echo "... src/swap_chain.o"
 	@echo "... src/swap_chain.i"
 	@echo "... src/swap_chain.s"
+	@echo "... src/systems/point_light_system.o"
+	@echo "... src/systems/point_light_system.i"
+	@echo "... src/systems/point_light_system.s"
+	@echo "... src/systems/simple_render_system.o"
+	@echo "... src/systems/simple_render_system.i"
+	@echo "... src/systems/simple_render_system.s"
 	@echo "... src/window.o"
 	@echo "... src/window.i"
 	@echo "... src/window.s"

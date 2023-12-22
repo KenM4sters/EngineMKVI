@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "/Users/samuelbrookman/Desktop/EngineMKVI/shaders/point_light.frag.spv"
+  "/Users/samuelbrookman/Desktop/EngineMKVI/shaders/point_light.vert.spv"
   "/Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.frag.spv"
   "/Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.vert.spv"
   "CMakeFiles/Shaders"

@@ -1,4 +1,6 @@
 # Hashes of file build rules.
+5155cb733e565fb4bf0f21c89d06fa4d /Users/samuelbrookman/Desktop/EngineMKVI/shaders/point_light.frag.spv
+f82b012de4a5e71769170aa02c08b99d /Users/samuelbrookman/Desktop/EngineMKVI/shaders/point_light.vert.spv
 f24b7d8e82f95948f0934141b4e5cb56 /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.frag.spv
 1fadcc563468de1ef7acb120c4ce705b /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.vert.spv
 1f36364df7b70fdbf8bae2fc171d0494 CMakeFiles/Shaders

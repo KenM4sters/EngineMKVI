@@ -66,18 +66,30 @@ include CMakeFiles/Shaders.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/Shaders.dir/progress.make
 
+CMakeFiles/Shaders: /Users/samuelbrookman/Desktop/EngineMKVI/shaders/point_light.frag.spv
+CMakeFiles/Shaders: /Users/samuelbrookman/Desktop/EngineMKVI/shaders/point_light.vert.spv
 CMakeFiles/Shaders: /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.frag.spv
 CMakeFiles/Shaders: /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.vert.spv
 
+/Users/samuelbrookman/Desktop/EngineMKVI/shaders/point_light.frag.spv: /Users/samuelbrookman/Desktop/EngineMKVI/shaders/point_light.frag
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating /Users/samuelbrookman/Desktop/EngineMKVI/shaders/point_light.frag.spv"
+	/usr/local/bin/glslangValidator -V /Users/samuelbrookman/Desktop/EngineMKVI/shaders/point_light.frag -o /Users/samuelbrookman/Desktop/EngineMKVI/shaders/point_light.frag.spv
+
+/Users/samuelbrookman/Desktop/EngineMKVI/shaders/point_light.vert.spv: /Users/samuelbrookman/Desktop/EngineMKVI/shaders/point_light.vert
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating /Users/samuelbrookman/Desktop/EngineMKVI/shaders/point_light.vert.spv"
+	/usr/local/bin/glslangValidator -V /Users/samuelbrookman/Desktop/EngineMKVI/shaders/point_light.vert -o /Users/samuelbrookman/Desktop/EngineMKVI/shaders/point_light.vert.spv
+
 /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.frag.spv: /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.frag
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.frag.spv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.frag.spv"
 	/usr/local/bin/glslangValidator -V /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.frag -o /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.frag.spv
 
 /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.vert.spv: /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.vert
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.vert.spv"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.vert.spv"
 	/usr/local/bin/glslangValidator -V /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.vert -o /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.vert.spv
 
 Shaders: CMakeFiles/Shaders
+Shaders: /Users/samuelbrookman/Desktop/EngineMKVI/shaders/point_light.frag.spv
+Shaders: /Users/samuelbrookman/Desktop/EngineMKVI/shaders/point_light.vert.spv
 Shaders: /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.frag.spv
 Shaders: /Users/samuelbrookman/Desktop/EngineMKVI/shaders/shader.vert.spv
 Shaders: CMakeFiles/Shaders.dir/build.make

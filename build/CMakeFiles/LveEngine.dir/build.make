@@ -209,24 +209,10 @@ CMakeFiles/LveEngine.dir/src/program.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LveEngine.dir/src/program.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/samuelbrookman/Desktop/EngineMKVI/src/program.cpp -o CMakeFiles/LveEngine.dir/src/program.cpp.s
 
-CMakeFiles/LveEngine.dir/src/renderSystem.cpp.o: CMakeFiles/LveEngine.dir/flags.make
-CMakeFiles/LveEngine.dir/src/renderSystem.cpp.o: /Users/samuelbrookman/Desktop/EngineMKVI/src/renderSystem.cpp
-CMakeFiles/LveEngine.dir/src/renderSystem.cpp.o: CMakeFiles/LveEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/LveEngine.dir/src/renderSystem.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LveEngine.dir/src/renderSystem.cpp.o -MF CMakeFiles/LveEngine.dir/src/renderSystem.cpp.o.d -o CMakeFiles/LveEngine.dir/src/renderSystem.cpp.o -c /Users/samuelbrookman/Desktop/EngineMKVI/src/renderSystem.cpp
-
-CMakeFiles/LveEngine.dir/src/renderSystem.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/LveEngine.dir/src/renderSystem.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/samuelbrookman/Desktop/EngineMKVI/src/renderSystem.cpp > CMakeFiles/LveEngine.dir/src/renderSystem.cpp.i
-
-CMakeFiles/LveEngine.dir/src/renderSystem.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LveEngine.dir/src/renderSystem.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/samuelbrookman/Desktop/EngineMKVI/src/renderSystem.cpp -o CMakeFiles/LveEngine.dir/src/renderSystem.cpp.s
-
 CMakeFiles/LveEngine.dir/src/renderer.cpp.o: CMakeFiles/LveEngine.dir/flags.make
 CMakeFiles/LveEngine.dir/src/renderer.cpp.o: /Users/samuelbrookman/Desktop/EngineMKVI/src/renderer.cpp
 CMakeFiles/LveEngine.dir/src/renderer.cpp.o: CMakeFiles/LveEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/LveEngine.dir/src/renderer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/LveEngine.dir/src/renderer.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LveEngine.dir/src/renderer.cpp.o -MF CMakeFiles/LveEngine.dir/src/renderer.cpp.o.d -o CMakeFiles/LveEngine.dir/src/renderer.cpp.o -c /Users/samuelbrookman/Desktop/EngineMKVI/src/renderer.cpp
 
 CMakeFiles/LveEngine.dir/src/renderer.cpp.i: cmake_force
@@ -240,7 +226,7 @@ CMakeFiles/LveEngine.dir/src/renderer.cpp.s: cmake_force
 CMakeFiles/LveEngine.dir/src/swap_chain.cpp.o: CMakeFiles/LveEngine.dir/flags.make
 CMakeFiles/LveEngine.dir/src/swap_chain.cpp.o: /Users/samuelbrookman/Desktop/EngineMKVI/src/swap_chain.cpp
 CMakeFiles/LveEngine.dir/src/swap_chain.cpp.o: CMakeFiles/LveEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/LveEngine.dir/src/swap_chain.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/LveEngine.dir/src/swap_chain.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LveEngine.dir/src/swap_chain.cpp.o -MF CMakeFiles/LveEngine.dir/src/swap_chain.cpp.o.d -o CMakeFiles/LveEngine.dir/src/swap_chain.cpp.o -c /Users/samuelbrookman/Desktop/EngineMKVI/src/swap_chain.cpp
 
 CMakeFiles/LveEngine.dir/src/swap_chain.cpp.i: cmake_force
@@ -251,10 +237,38 @@ CMakeFiles/LveEngine.dir/src/swap_chain.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LveEngine.dir/src/swap_chain.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/samuelbrookman/Desktop/EngineMKVI/src/swap_chain.cpp -o CMakeFiles/LveEngine.dir/src/swap_chain.cpp.s
 
+CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.o: CMakeFiles/LveEngine.dir/flags.make
+CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.o: /Users/samuelbrookman/Desktop/EngineMKVI/src/systems/point_light_system.cpp
+CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.o: CMakeFiles/LveEngine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.o -MF CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.o.d -o CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.o -c /Users/samuelbrookman/Desktop/EngineMKVI/src/systems/point_light_system.cpp
+
+CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/samuelbrookman/Desktop/EngineMKVI/src/systems/point_light_system.cpp > CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.i
+
+CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/samuelbrookman/Desktop/EngineMKVI/src/systems/point_light_system.cpp -o CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.s
+
+CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.o: CMakeFiles/LveEngine.dir/flags.make
+CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.o: /Users/samuelbrookman/Desktop/EngineMKVI/src/systems/simple_render_system.cpp
+CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.o: CMakeFiles/LveEngine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.o -MF CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.o.d -o CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.o -c /Users/samuelbrookman/Desktop/EngineMKVI/src/systems/simple_render_system.cpp
+
+CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/samuelbrookman/Desktop/EngineMKVI/src/systems/simple_render_system.cpp > CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.i
+
+CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/samuelbrookman/Desktop/EngineMKVI/src/systems/simple_render_system.cpp -o CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.s
+
 CMakeFiles/LveEngine.dir/src/window.cpp.o: CMakeFiles/LveEngine.dir/flags.make
 CMakeFiles/LveEngine.dir/src/window.cpp.o: /Users/samuelbrookman/Desktop/EngineMKVI/src/window.cpp
 CMakeFiles/LveEngine.dir/src/window.cpp.o: CMakeFiles/LveEngine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/LveEngine.dir/src/window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/LveEngine.dir/src/window.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LveEngine.dir/src/window.cpp.o -MF CMakeFiles/LveEngine.dir/src/window.cpp.o.d -o CMakeFiles/LveEngine.dir/src/window.cpp.o -c /Users/samuelbrookman/Desktop/EngineMKVI/src/window.cpp
 
 CMakeFiles/LveEngine.dir/src/window.cpp.i: cmake_force
@@ -277,9 +291,10 @@ LveEngine_OBJECTS = \
 "CMakeFiles/LveEngine.dir/src/mesh.cpp.o" \
 "CMakeFiles/LveEngine.dir/src/pipeline.cpp.o" \
 "CMakeFiles/LveEngine.dir/src/program.cpp.o" \
-"CMakeFiles/LveEngine.dir/src/renderSystem.cpp.o" \
 "CMakeFiles/LveEngine.dir/src/renderer.cpp.o" \
 "CMakeFiles/LveEngine.dir/src/swap_chain.cpp.o" \
+"CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.o" \
+"CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.o" \
 "CMakeFiles/LveEngine.dir/src/window.cpp.o"
 
 # External object files for target LveEngine
@@ -295,15 +310,16 @@ LveEngine: CMakeFiles/LveEngine.dir/src/main.cpp.o
 LveEngine: CMakeFiles/LveEngine.dir/src/mesh.cpp.o
 LveEngine: CMakeFiles/LveEngine.dir/src/pipeline.cpp.o
 LveEngine: CMakeFiles/LveEngine.dir/src/program.cpp.o
-LveEngine: CMakeFiles/LveEngine.dir/src/renderSystem.cpp.o
 LveEngine: CMakeFiles/LveEngine.dir/src/renderer.cpp.o
 LveEngine: CMakeFiles/LveEngine.dir/src/swap_chain.cpp.o
+LveEngine: CMakeFiles/LveEngine.dir/src/systems/point_light_system.cpp.o
+LveEngine: CMakeFiles/LveEngine.dir/src/systems/simple_render_system.cpp.o
 LveEngine: CMakeFiles/LveEngine.dir/src/window.cpp.o
 LveEngine: CMakeFiles/LveEngine.dir/build.make
 LveEngine: /opt/homebrew/lib/libglfw.3.3.dylib
 LveEngine: /usr/local/lib/libvulkan.dylib
 LveEngine: CMakeFiles/LveEngine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable LveEngine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/samuelbrookman/Desktop/EngineMKVI/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable LveEngine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LveEngine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
