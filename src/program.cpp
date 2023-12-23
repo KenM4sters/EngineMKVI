@@ -111,8 +111,11 @@ namespace lve {
 
                 // render
                 lveRenderer.beginSwapChainRenderPass(commandBuffer);
+                
+                // order here matters - rendersystem before pointLightSystem for accurate alpha blending
                 renderSystem.renderGameObjects(frameInfo);
                 pointLightSystem.render(frameInfo);
+
                 lveRenderer.endSwapChainRenderPass(commandBuffer);
                 lveRenderer.endFrame();
             }

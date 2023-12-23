@@ -13,7 +13,7 @@ namespace lve {
     struct TransformComponent {
         glm::vec3 translation{};
         glm::vec3 scale{1.0f, 1.0f, 1.0f};
-        glm::vec3 rotation;
+        glm::vec3 rotation{};
 
         // Matrix corresponds to translate * Ry * Rx * Rz * scale transformation
         // Rotation convention uses tait-bryan angles with axis order Y(1), X(2), Z(3)

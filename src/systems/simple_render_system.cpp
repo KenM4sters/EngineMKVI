@@ -75,7 +75,7 @@ namespace lve {
             pipelineLayout,
             0,
             1,
-            &frameInfo.globaDescriptorSet,
+            &frameInfo.globalDescriptorSet,
             0,
             nullptr);
         

@@ -30,7 +30,7 @@ namespace lve {
         float frameTime;
         VkCommandBuffer commandBuffer;
         LveCamera &camera;
-        VkDescriptorSet globaDescriptorSet;
+        VkDescriptorSet globalDescriptorSet;
         LveGameObject::Map &gameObjects;
 
     };
