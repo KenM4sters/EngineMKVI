@@ -12,10 +12,12 @@
 #include <glm/gtc/constants.hpp>
 
 // std
+#include <cstdlib>
 #include <stdexcept>
 #include <chrono>
 #include <cassert>
 #include <array>
+#include <iostream>
 
 
 namespace lve {
@@ -125,51 +127,56 @@ namespace lve {
 
 
     void App::loadGameObjects() {
-        std::shared_ptr<LveMesh> lveMesh = LveMesh::createModelFromFile(
-            lveDevice, "assets/models/smooth_vase.obj");
+        // std::shared_ptr<LveMesh> lveMesh = LveMesh::createModelFromFile(
+        //     lveDevice, "assets/models/smooth_vase.obj");
 
-        std::shared_ptr<LveMesh> lveMesh_2 = LveMesh::createModelFromFile(
-            lveDevice, "assets/models/flat_vase.obj");
+        // std::shared_ptr<LveMesh> lveMesh_2 = LveMesh::createModelFromFile(
+        //     lveDevice, "assets/models/flat_vase.obj");
 
-        std::shared_ptr<LveMesh> lve_floor = LveMesh::createModelFromFile(
-            lveDevice, "assets/models/quad.obj");
+        // std::shared_ptr<LveMesh> lve_floor = LveMesh::createModelFromFile(
+        //     lveDevice, "assets/models/quad.obj");
 
-        auto vase_smooth = LveGameObject::createGameObject();
-        vase_smooth.mesh = lveMesh;
-        vase_smooth.transform.translation = {-0.5f, 0.5f, 0.0f};
-        vase_smooth.transform.scale = glm::vec3(3.0f);
-        gameObjects.emplace(vase_smooth.getId(), std::move(vase_smooth));
+        // auto vase_smooth = LveGameObject::createGameObject();
+        // vase_smooth.mesh = lveMesh;
+        // vase_smooth.transform.translation = {-0.5f, 0.5f, 0.0f};
+        // vase_smooth.transform.scale = glm::vec3(3.0f);
+        // gameObjects.emplace(vase_smooth.getId(), std::move(vase_smooth));
         
-        auto vase_flat = LveGameObject::createGameObject();
-        vase_flat.mesh = lveMesh_2;
-        vase_flat.transform.translation = {0.5f, 0.5f, 0.0f};
-        vase_flat.transform.scale = glm::vec3(3.0f);
-        gameObjects.emplace(vase_flat.getId(), std::move(vase_flat));
+        // auto vase_flat = LveGameObject::createGameObject();
+        // vase_flat.mesh = lveMesh_2;
+        // vase_flat.transform.translation = {0.5f, 0.5f, 0.0f};
+        // vase_flat.transform.scale = glm::vec3(3.0f);
+        // gameObjects.emplace(vase_flat.getId(), std::move(vase_flat));
 
-        auto floor = LveGameObject::createGameObject();
-        floor.mesh = lve_floor;
-        floor.transform.translation = {0.0f, 0.5f, 0.0f};
-        floor.transform.scale = glm::vec3(3.0f);
-        gameObjects.emplace(floor.getId(), std::move(floor));
+        // auto floor = LveGameObject::createGameObject();
+        // floor.mesh = lve_floor;
+        // floor.transform.translation = {0.0f, 0.5f, 0.0f};
+        // floor.transform.scale = glm::vec3(3.0f);
+        // gameObjects.emplace(floor.getId(), std::move(floor));
         
          std::vector<glm::vec3> lightColors{
-            {1.f, .1f, .1f},
-            {.1f, .1f, 1.f},
-            {.1f, 1.f, .1f},
-            {1.f, 1.f, .1f},
-            {.1f, 1.f, 1.f},
-            {1.f, 1.f, 1.f} 
+            {1.0f, 0.1f, 0.1f},
+            {0.1f, 0.1f, 1.0f},
+            {1.0f, 0.1f, 1.0f}
         };
         
-        for(int i = 0; i < lightColors.size(); i++) {
-            auto pointLight = LveGameObject::makePointLight(0.2f);
-            pointLight.color = lightColors[i];
-            auto rotateLight = glm::rotate(
-                glm::mat4(1.0f), 
-                (i * glm::two_pi<float>() / lightColors.size()),
-                {0.0f, -1.0f, 0.0f});
+        srand((unsigned)time(NULL));
+
+        for(int i = 0; i < MAX_LIGHTS; i++) {
             
-            pointLight.transform.translation = glm::vec3(rotateLight * glm::vec4(-1.0f, -1.0f, -1.0f, 1.0f));
+            int colorIndex = rand() % lightColors.size();
+
+            int randX = (rand() % 100) - 50;
+            int randY = (rand() % 100) - 50;
+            int randZ = (rand() % 100) - 50;
+
+            // std::cout << randX << std::endl;
+            // std::cout << randY << std::endl;
+            // std::cout << randZ << std::endl;
+
+            auto pointLight = LveGameObject::makePointLight(0.2f);
+            pointLight.color = lightColors[colorIndex];
+            pointLight.transform.translation = glm::vec3(randX, randY, randZ);
             gameObjects.emplace(pointLight.getId(), std::move(pointLight));
         }
     }
