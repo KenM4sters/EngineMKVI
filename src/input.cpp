@@ -13,13 +13,15 @@ namespace lve {
         if(glm::dot(rotate, rotate) > std::numeric_limits<float>::epsilon())
             gameObject.transform.rotation += lookSpeed * dt * glm::normalize(rotate);
 
-        gameObject.transform.rotation.x = glm::clamp(gameObject.transform.rotation.x, -1.5f, 1.5f);
+        gameObject.transform.rotation.x = glm::clamp(gameObject.transform.rotation.x, -1 * glm::two_pi<float>() / 4, glm::two_pi<float>() / 4);
         gameObject.transform.rotation.y = glm::mod(gameObject.transform.rotation.y, glm::two_pi<float>());
 
         float yaw = gameObject.transform.rotation.y;
-        const glm::vec3 forwardDir{sin(yaw), 0.0f, cos(yaw)};
+        float pitch = gameObject.transform.rotation.x;
+
+        const glm::vec3 forwardDir{sin(yaw), -sin(pitch), cos(yaw)};
         const glm::vec3 rightDir{forwardDir.z, 0.0f, -forwardDir.x};
-        const glm::vec3 upDir{0.0f, -1.0f, 0.0f};
+        const glm::vec3 upDir{0.0f, -1.0f, 0.0f};             
 
         glm::vec3 moveDir{0.0f};
         if (glfwGetKey(window, keys.moveForward) == GLFW_PRESS) moveDir += forwardDir;
@@ -32,8 +34,11 @@ namespace lve {
         if(glm::dot(moveDir, moveDir) > std::numeric_limits<float>::epsilon())
             gameObject.transform.translation += moveSpeed * dt * glm::normalize(moveDir);
 
-
-        
     }
 
+    void KeyboardMovementController::moveCamera(LveGameObject& sourceObject, LveGameObject& targetObject) {
+ 
+    }
+    void KeyboardMovementController::movePlayer() {}
+ 
 }

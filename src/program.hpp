@@ -26,6 +26,7 @@ namespace lve {
 
         private:
             void loadGameObjects();
+            void updateGameObject();
 
             LveWindow lveWindow{WIDTH, HEIGHT, "EngineMKIV"};
             LveDevice lveDevice{lveWindow};

@@ -1,6 +1,7 @@
 #pragma once 
 #include "./mesh.hpp"
 
+
 // libs
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -8,7 +9,7 @@
 #include <memory>
 #include <unordered_map>
 
-namespace lve {
+namespace lve { 
 
     struct TransformComponent {
         glm::vec3 translation{};

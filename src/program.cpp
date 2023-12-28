@@ -72,8 +72,11 @@ namespace lve {
         LveCamera camera{};
 
         auto viewerObject = LveGameObject::createGameObject();
+        auto shipIndex = gameObjects.find(0);
+
         viewerObject.transform.translation.z = -2.5f;
         KeyboardMovementController cameraController{};
+        KeyboardMovementController shipController{};
 
         auto currentTime = std::chrono::high_resolution_clock::now();
         while(!lveWindow.shouldClose()) { 
@@ -85,9 +88,12 @@ namespace lve {
                 std::chrono::duration<float, std::chrono::seconds::period>(newTime - currentTime).count();
             currentTime = newTime;
 
-            cameraController.moveInPlaneXZ(lveWindow.getGLFWWindow(), frameTime, viewerObject);
-            camera.setViewYXZ(viewerObject.transform.translation, viewerObject.transform.rotation);
+            // cameraController.moveInPlaneXZ(lveWindow.getGLFWWindow(), frameTime, viewerObject);
+            shipController.moveInPlaneXZ(lveWindow.getGLFWWindow(), frameTime, shipIndex->second);
 
+            viewerObject.transform.translation = shipIndex->second.transform.translation + glm::vec3(0.0f, -0.5f, -4.0f);
+
+            camera.setViewYXZ(viewerObject.transform.translation, viewerObject.transform.rotation);
 
             // camera.setOrthographicProjection(-aspect, aspect, -1, 1, -1, 1);
             camera.setPerspectiveProjection(glm::radians(50.0f), aspect, 0.1f, 100.0f);
@@ -127,8 +133,8 @@ namespace lve {
 
 
     void App::loadGameObjects() {
-        // std::shared_ptr<LveMesh> lveMesh = LveMesh::createModelFromFile(
-        //     lveDevice, "assets/models/smooth_vase.obj");
+        std::shared_ptr<LveMesh> lveMesh = LveMesh::createModelFromFile(
+            lveDevice, "assets/models/Star_destroyer.obj");
 
         // std::shared_ptr<LveMesh> lveMesh_2 = LveMesh::createModelFromFile(
         //     lveDevice, "assets/models/flat_vase.obj");
@@ -136,11 +142,11 @@ namespace lve {
         // std::shared_ptr<LveMesh> lve_floor = LveMesh::createModelFromFile(
         //     lveDevice, "assets/models/quad.obj");
 
-        // auto vase_smooth = LveGameObject::createGameObject();
-        // vase_smooth.mesh = lveMesh;
-        // vase_smooth.transform.translation = {-0.5f, 0.5f, 0.0f};
-        // vase_smooth.transform.scale = glm::vec3(3.0f);
-        // gameObjects.emplace(vase_smooth.getId(), std::move(vase_smooth));
+        auto star_destroyer = LveGameObject::createGameObject();
+        star_destroyer.mesh = lveMesh;
+        star_destroyer.transform.translation.y = {0.5f};
+        star_destroyer.transform.scale = glm::vec3(0.25f);
+        gameObjects.emplace(star_destroyer.getId(), std::move(star_destroyer));
         
         // auto vase_flat = LveGameObject::createGameObject();
         // vase_flat.mesh = lveMesh_2;
@@ -162,7 +168,12 @@ namespace lve {
         
         srand((unsigned)time(NULL));
 
-        for(int i = 0; i < MAX_LIGHTS; i++) {
+        auto centerPointLight = LveGameObject::makePointLight();
+        centerPointLight.color = {1.0f, 1.0f, 1.0f};
+        centerPointLight.transform.translation = glm::vec3(0.0f, -5.0f, 0.0f);
+        gameObjects.emplace(centerPointLight.getId(), std::move(centerPointLight));
+
+        for(int i = 0; i < MAX_LIGHTS - 1; i++) {
             
             int colorIndex = rand() % lightColors.size();
 
@@ -178,6 +189,14 @@ namespace lve {
             pointLight.color = lightColors[colorIndex];
             pointLight.transform.translation = glm::vec3(randX, randY, randZ);
             gameObjects.emplace(pointLight.getId(), std::move(pointLight));
+
         }
+        updateGameObject();
+    }
+
+    void App::updateGameObject() {
+        auto it = gameObjects.find(0);
+        
+        std::cout << it->second.transform.scale.y << std::endl; 
     }
 }

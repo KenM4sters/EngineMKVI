@@ -20,9 +20,11 @@ namespace lve {
             };
 
             void moveInPlaneXZ(GLFWwindow* window, float dt, LveGameObject& gameObject);
+            void moveCamera(LveGameObject& sourceObject, LveGameObject& targetObject);
+            void movePlayer();
 
             KeyMappings keys{};
-            float moveSpeed{3.0f};
+            float moveSpeed{1.5f};
             float lookSpeed{1.5f};
     };
 }
